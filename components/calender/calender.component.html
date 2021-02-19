@@ -1,0 +1,46 @@
+<link href="https://unpkg.com/bootstrap-css-only@4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://unpkg.com/@fortawesome/fontawesome-free@5.15.1/css/all.css" rel="stylesheet">
+<link href="https://unpkg.com/angular-calendar@0.28.22/css/angular-calendar.css" rel="stylesheet">
+<link href="https://unpkg.com/flatpickr@4.6.6/dist/flatpickr.css" rel="stylesheet">
+<div class="row text-center">
+  <div class="col-md-4">
+    <div class="col-md-4">
+      <div class="btn-group">
+      </div>
+    </div>
+    <!--<h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>-->
+    <h3>Calender Time Slot</h3>
+  </div>
+  <!--<div class="col-md-4">
+    <div class="btn-group">
+      <div
+        class="btn btn-primary"
+        (click)="setView(CalendarView.Week)"
+        [class.active]="view === CalendarView.Week"
+      >
+        Week
+      </div>
+    </div>
+  </div>-->
+</div>
+<br />
+<div [ngSwitch]="view">
+  <mwl-calendar-week-view
+    *ngSwitchCase="CalendarView.Week"
+    [viewDate]="viewDate"
+    [events]="events"
+    [hourSegments]="4"
+    [dayStartHour]="9"
+    [dayEndHour]="15"
+    [refresh]="refresh"
+    [weekStartsOn]="1"
+    [daysInWeek]="10"
+    [excludeDays]=[0,6]
+  >
+    <!--(eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)"-->
+  
+  </mwl-calendar-week-view>
+</div>
+
+
